@@ -12,7 +12,7 @@ const Register = () => {
 
     const handleRegister = (e) => {
         e.preventDefault();
-
+        setErrorMessage('');
         const form = e.target;
 
         const email = form.email.value;
@@ -20,6 +20,23 @@ const Register = () => {
         const photo = form.photo.value;
         const password = form.password.value;
         console.log(email, name, photo, password);
+
+        // password validation
+        const upperCaseRegex = /(?=.*[A-Z])/;
+        if (upperCaseRegex.test(password) === false) {
+            setErrorMessage('Must have an Uppercase letter in the password')
+            return;
+        }
+        const lowerCaseRegex = /(?=.*[a-z])/;
+        if (lowerCaseRegex.test(password) === false) {
+            setErrorMessage('Must have a Lowercase letter in the password')
+            return;
+        }
+        const lengthSixRegex = /.{6,}/;
+        if (lengthSixRegex.test(password) === false) {
+            setErrorMessage('Password length must be at least 6 character ')
+            return;
+        }
 
         createUser(email, password)
             .then(result => {
@@ -42,7 +59,7 @@ const Register = () => {
                         navigate(location?.state || '/');
                     }).catch(error => {
                         console.log('error in userUpdate', error);
-                        // setUser(newUser);
+                        setUser(newUser);
                     })
 
             })
@@ -100,7 +117,7 @@ const Register = () => {
 
                                 </div>
 
-                                {/* {errorMessage && <p className='text-red-500 text-xs'>{errorMessage}</p>} */}
+                                {errorMessage && <p className='text-red-500 text-xs'>{errorMessage}</p>}
 
 
 

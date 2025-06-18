@@ -1,18 +1,62 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { useFormatDate } from '../../hooks/useFormatDate';
 import Rating from 'react-rating';
 import { FaRegStar, FaStar } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const MyReviewCard = ({ myReviewCreatedByPromise }) => {
     const myreviews = use(myReviewCreatedByPromise);
     const { formatDateToDMY } = useFormatDate();
+    const [showReviews, setShowReviews] = useState(myreviews);
+
+
+    // review delete start
+    const handleReviewDelete = (id) => {
+        console.log('delete review', id);
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:3000/reviews/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount) {
+
+                            const remaingReviews = showReviews.filter(revw => revw._id !== id);
+                            setShowReviews(remaingReviews);
+
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your Review has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+
+            }
+        });
+
+    }
+    // revidew delete end
+
     return (
         <div>
 
-            <h1 className='text-center'>Total Review: {myreviews.length}</h1>
+            <h1 className='text-center'>Total Review: {showReviews.length}</h1>
             <div>
-                {myreviews.length > 0 ?
-                    myreviews.map(myReview => <div key={myReview._id} className="card w-full bg-base-100 shadow-xl my-4">
+                {showReviews.length > 0 ?
+                    showReviews.map(myReview => <div key={myReview._id} className="card w-full bg-base-100 shadow-xl my-4">
                         <div className="card-body">
                             <p className='text-2xl font-semibold'>Service Title: {myReview.serviceTitle}</p>
                             {/* <div className="flex items-center gap-3">
@@ -31,7 +75,7 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
                             />
                             <div className='space-x-3'>
                                 <button className='btn btn-primary'>Update</button>
-                                <button className='btn btn-secondary'>Delete</button>
+                                <button onClick={() => handleReviewDelete(myReview._id)} className='btn btn-secondary'>Delete</button>
                             </div>
                         </div>
                     </div>) : <p className="p-4 text-xl">0 review</p>

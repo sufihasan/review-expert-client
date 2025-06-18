@@ -1,9 +1,13 @@
 
 
 import React, { use } from 'react';
+import { FaRegStar, FaStar } from 'react-icons/fa';
+import Rating from 'react-rating';
+import { useFormatDate } from '../../hooks/useFormatDate';
 
 const Reviews = ({ reviewsPromise, newReview }) => {
     const reviews = use(reviewsPromise);
+    const { formatDateToDMY } = useFormatDate();
     // const [finalReview, setfinalReview] = useState(reviews);
     // setfinalReview([newReview, ...reviews]);
     console.log(reviews);
@@ -14,11 +18,20 @@ const Reviews = ({ reviewsPromise, newReview }) => {
                 {reviews.length > 0 ?
                     reviews.map(review => <div key={review._id} className="card w-full bg-base-100 shadow-xl my-4">
                         <div className="card-body">
-                            <div className="flex">
+                            <div className="flex items-center gap-3">
                                 <img className="w-10 rounded-full mr-2" src={review.reviewerPhoto} alt="" />
                                 <h2 className="card-title">{review.reviewerName}</h2>
+
                             </div>
+                            <p>Date: {formatDateToDMY(review.reviewDate)}</p>
                             <p>Review: {review.reviewText}</p>
+                            <Rating
+                                emptySymbol={<FaRegStar className="text-2xl text-yellow-400" />}
+                                fullSymbol={<FaStar className="text-2xl text-yellow-400" />}
+                                initialRating={review.rating}
+                                readonly
+                            // onChange={(rate) => setRating(rate)}
+                            />
                         </div>
                     </div>) : <p className="p-4 text-xl">0 review</p>
                 }

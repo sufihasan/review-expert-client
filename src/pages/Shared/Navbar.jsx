@@ -32,28 +32,33 @@ const Navbar = () => {
                 to='/services'>Services</NavLink>
         </li>
 
-        <li className='text-xl' >
-            <NavLink
-                className={({ isActive }) => isActive ? 'text-white  font-semibold  rounded-none bg-primary' : ''}
-                to='/addService'>Add Service</NavLink>
-        </li>
+        {
+            user ? <>
+                <li className='text-xl' >
+                    <NavLink
+                        className={({ isActive }) => isActive ? 'text-white  font-semibold  rounded-none bg-primary' : ''}
+                        to='/addService'>Add Service</NavLink>
+                </li>
 
-        <li className='text-xl'>
-            <NavLink
-                className={({ isActive }) => isActive ? 'text-white  font-semibold  rounded-none bg-primary' : ''}
-                to='/myService'>My Services</NavLink>
-        </li>
-        <li className='text-xl'>
-            <NavLink
-                className={({ isActive }) => isActive ? 'text-white  font-semibold  rounded-none bg-primary' : ''}
-                to='/myReviews'>My Reviews</NavLink>
-        </li>
+                <li className='text-xl'>
+                    <NavLink
+                        className={({ isActive }) => isActive ? 'text-white  font-semibold  rounded-none bg-primary' : ''}
+                        to='/myService'>My Services</NavLink>
+                </li>
+                <li className='text-xl'>
+                    <NavLink
+                        className={({ isActive }) => isActive ? 'text-white  font-semibold  rounded-none bg-primary' : ''}
+                        to='/myReviews'>My Reviews</NavLink>
+                </li>
+
+            </> : ''
+        }
 
 
     </>
 
     return (
-        <div className=" bg-base-100  dark:bg-gray-800 dark:text-white">
+        <div className=" bg-base-100   border-2 border-gray-500 shadow-2xl rounded-lg mx-5 mt-3">
 
             <div className='navbar md:w-11/12 mx-auto'>
                 <div className="navbar-start">
@@ -80,7 +85,21 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-end space-x-2">
-
+                    <label className="input w-40">
+                        <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <g
+                                strokeLinejoin="round"
+                                strokeLinecap="round"
+                                strokeWidth="2.5"
+                                fill="none"
+                                stroke="currentColor"
+                            >
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.3-4.3"></path>
+                            </g>
+                        </svg>
+                        <input type="search" required placeholder="Search" />
+                    </label>
 
 
                     {
@@ -99,7 +118,7 @@ const Navbar = () => {
                             </ul>
                         </div> : <>
                             <Link to='/login'><button className='btn btn-xs md:btn-md btn-primary'>Login</button></Link>
-                            {/* <Link to='/register'><button className='btn btn-xs md:btn-md btn-success'>Register</button></Link> */}
+                            <Link to='/register'><button className='btn btn-xs md:btn-md text-white bg-blue-500'>Register</button></Link>
 
                         </>
                     }

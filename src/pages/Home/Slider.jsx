@@ -11,8 +11,8 @@ const Slider = () => {
                         className="w-full h-80" />
 
                     <div className='absolute top-[70%] left-[30%] text-white text-center bg-gray-500/50 p-2'>
-                        <h1 className='text-2xl'>Lorem ipsum dolor sit amet.</h1>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, repellendus?</p>
+                        <h1 className='text-2xl'>Discover top-rated services.</h1>
+                        <p>Browse helpful reviews to choose services that meet your needs best.</p>
 
                     </div>
 
@@ -27,8 +27,8 @@ const Slider = () => {
                         src="https://i.ibb.co/QFsvdsDQ/rev1.jpg"
                         className="w-full h-80" />
                     <div className='absolute top-[70%] left-[30%] text-white text-center bg-gray-500/40 p-2'>
-                        <h1 className='text-2xl'>Lorem ipsum dolor sit amet.</h1>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, repellendus?</p>
+                        <h1 className='text-2xl'>Write and share reviews</h1>
+                        <p>Help others by posting honest feedback and real service experiences.</p>
 
                     </div>
 
@@ -44,8 +44,8 @@ const Slider = () => {
                         className="w-full h-80" />
 
                     <div className='absolute top-[70%] left-[30%] text-white text-center bg-gray-500/30 p-2'>
-                        <h1 className='text-2xl'>Lorem ipsum dolor sit amet.</h1>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, repellendus?</p>
+                        <h1 className='text-2xl'>Manage your services easily</h1>
+                        <p>Add, update, or remove your services anytime to stay in control.</p>
 
                     </div>
 

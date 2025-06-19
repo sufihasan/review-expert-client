@@ -1,4 +1,4 @@
-import React, { useTransition } from 'react';
+import React from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import Rating from 'react-rating';
 
@@ -6,12 +6,12 @@ const UpdateReviewModal = ({
     review,
     rating,
     setRating,
-    reviewText,
-    setReviewText,
+    // reviewText,
+    // setReviewText,
     handleSubmit
 }) => {
 
-    const [isPending, startTransition] = useTransition();
+    // const [isPending, startTransition] = useTransition();
 
     if (!review) return null;
 

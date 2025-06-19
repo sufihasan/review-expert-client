@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from 'react';
+import React, { use, useState } from 'react';
 import { useFormatDate } from '../../hooks/useFormatDate';
 import Rating from 'react-rating';
 import { FaRegStar, FaStar } from 'react-icons/fa';

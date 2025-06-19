@@ -1,11 +1,15 @@
 import React, { use, useState } from 'react';
 import { useFormatDate } from '../../hooks/useFormatDate';
 import Swal from 'sweetalert2';
+import UpdateServiceModal from './UpdateServiceModal';
+
 
 const MyServiceCard = ({ myServicesCreatedByPromise }) => {
     const myServices = use(myServicesCreatedByPromise);
     const [showServices, setShowServices] = useState(myServices);
+    const [oldMyservice, setOldMyService] = useState({});
     const { formatDateToDMY } = useFormatDate();
+    // console.log('ok', newMyservice);
 
 
     // review delete start
@@ -48,10 +52,64 @@ const MyServiceCard = ({ myServicesCreatedByPromise }) => {
     }
     // revidew delete end
 
+    const handleUpdateServiceClick = (myservice) => {
+        setOldMyService(myservice);
+
+
+        // setRating(review.rating);
+        // setReviewText(review.reviewText);
+        document.getElementById('my_modal_3').showModal();
+    };
+
+    const handleUpdateServiceSubmit = (e, id) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const updateService = Object.fromEntries(formData.entries());
+        // console.log('handleUpdateServiceSubmit thekay', updateService);
+        // console.log('handleUpdateServiceSubmit thekay', id);
+
+        fetch(`http://localhost:3000/services/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updateService),
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    // Update review in the list
+                    const updatedServices = showServices.map((servs) =>
+                        servs._id === id ? { ...servs, ...updateService } : servs
+                    );
+                    setShowServices(updatedServices);
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Service Updated!',
+                        timer: 1500,
+                        showConfirmButton: false,
+                    });
+
+                    // Optional: Close modal manually
+                    document.getElementById('my_modal_3').close();
+                }
+            });
+
+
+
+
+    }
+
     return (
         <div className=''>
             <h1 className='text-center text-gray-500'>Total Service: {showServices.length}</h1>
-
+            <UpdateServiceModal
+                handleUpdateServiceSubmit={handleUpdateServiceSubmit}
+                oldMyservice={oldMyservice}
+            ></UpdateServiceModal>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -113,7 +171,7 @@ const MyServiceCard = ({ myServicesCreatedByPromise }) => {
                                 <th className='flex gap-2'>
                                     <div className="join join-vertical gap-2">
 
-                                        <button className="btn join-item">Update</button>
+                                        <button onClick={() => handleUpdateServiceClick(myService)} className="btn join-item">Update</button>
                                         <button onClick={() => handleServiceDelete(myService._id)} className="btn join-item">Delete</button>
 
                                     </div>

@@ -81,7 +81,34 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
         };
 
 
+        fetch(`http://localhost:3000/reviews/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedReview),
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    // Update review in the list
+                    const updatedList = showReviews.map((rev) =>
+                        rev._id === id ? { ...rev, ...updatedReview } : rev
+                    );
+                    setShowReviews(updatedList);
 
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Review Updated!',
+                        timer: 1500,
+                        showConfirmButton: false,
+                    });
+
+                    // Optional: Close modal manually
+                    document.getElementById('my_modal_3').close();
+                }
+            });
 
 
     };

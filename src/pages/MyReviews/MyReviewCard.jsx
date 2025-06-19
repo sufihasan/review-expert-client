@@ -12,7 +12,7 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
     const [revData, setRevData] = useState({});
     // const numRating = revData.rating;
     const [rating, setRating] = useState(0);
-    const [reviewText, setReviewText] = useState('');  // new add
+    // const [reviewText, setReviewText] = useState('');  // new add
 
 
 
@@ -63,17 +63,27 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
     const handleUpdateClick = (review) => {
         setRevData(review);
         setRating(review.rating);
-        setReviewText(review.reviewText);
+        // setReviewText(review.reviewText);
         document.getElementById('my_modal_3').showModal();
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e, id) => {
         e.preventDefault();
-        console.log('Updated review text:', reviewText);
+        const updatedText = e.target.review.value;
+        console.log('Updated Text:', updatedText);
         console.log('Updated rating:', rating);
+        console.log('id of this', id);
 
-        // Add PUT/PATCH logic here to update the review in backend
-        // After update: close modal, update showReviews list, etc.
+        const updatedReview = {
+            reviewText: updatedText,
+            rating: rating,
+            // reviewDate: new Date(),
+        };
+
+
+
+
+
     };
 
     return (
@@ -87,8 +97,8 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
                 review={revData}
                 rating={rating}
                 setRating={setRating}
-                reviewText={reviewText}
-                setReviewText={setReviewText}
+                // reviewText={reviewText}
+                // setReviewText={setReviewText}
                 handleSubmit={handleSubmit}
             ></UpdateReviewModal>
 

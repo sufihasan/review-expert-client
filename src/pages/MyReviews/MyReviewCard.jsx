@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { useFormatDate } from '../../hooks/useFormatDate';
 import Rating from 'react-rating';
 import { FaRegStar, FaStar } from 'react-icons/fa';
@@ -8,6 +8,15 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
     const myreviews = use(myReviewCreatedByPromise);
     const { formatDateToDMY } = useFormatDate();
     const [showReviews, setShowReviews] = useState(myreviews);
+    const [revData, serRevdata] = useState({});
+    // const numRating = revData.rating;
+    const [rating, setRating] = useState(0);
+    const [reviewText, setReviewText] = useState('');  // new add
+
+
+
+    console.log(revData);
+    console.log(rating);
 
 
     // review delete start
@@ -50,10 +59,64 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
     }
     // revidew delete end
 
+    const handleAddReview = (e) => {
+        e.preventDefault();
+        console.log('print from handle add review');
+
+        const newReviewText = reviewText;
+        console.log(newReviewText);
+    }
+
     return (
         <div>
 
             <h1 className='text-center'>Total Review: {showReviews.length}</h1>
+
+            {/* modal start */}
+
+            <dialog id="my_modal_3" className="modal">
+                <div className="modal-box">
+                    <form method="dialog">
+                        {/* if there is a button in form, it will close the modal */}
+                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    </form>
+                    <form onSubmit={handleAddReview} className='my-5 space-y-3' >
+                        {/* <label >Service Title</label>
+                        <input type="text" className='input input-bordered' /> */}
+                        <fieldset className="fieldset">
+                            <legend className="fieldset-legend">Sevice Title</legend>
+                            <input type="text" readOnly className="input" defaultValue={revData.serviceTitle} placeholder="Type here" />
+
+                        </fieldset>
+
+                        <textarea className="textarea input input-bordered w-full"
+                            placeholder="Enter your review here"
+                            value={reviewText}
+                            onChange={(e) => setReviewText(e.target.value)} // new add
+                            name="review" required
+                        ></textarea>
+
+                        <span className='block'>
+                            <Rating
+                                emptySymbol={<FaRegStar className="text-2xl text-yellow-400" />}
+                                fullSymbol={<FaStar className="text-2xl text-yellow-400" />}
+                                initialRating={rating}
+                                onChange={(rate) => setRating(rate)}
+                            />
+
+                        </span>
+                        {revData.rating === 0 && (
+                            <p className="text-red-500 text-sm mt-1">Rating is required.</p>
+                        )}
+                        <input type="submit" className='btn block' value="Add Review" />
+
+                    </form>
+
+                </div>
+            </dialog>
+
+            {/* modal end */}
+
             <div>
                 {showReviews.length > 0 ?
                     showReviews.map(myReview => <div key={myReview._id} className="card w-full bg-base-100 shadow-xl my-4">
@@ -73,8 +136,16 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
                                 readonly
                             // onChange={(rate) => setRating(rate)}
                             />
+
+
+
                             <div className='space-x-3'>
-                                <button className='btn btn-primary'>Update</button>
+                                <button onClick={() => {
+                                    document.getElementById('my_modal_3').showModal();
+                                    serRevdata(myReview);
+                                    setRating(myReview.rating);
+                                    setReviewText(myReview.reviewText); // set current review text new add
+                                }} className='btn btn-primary'>Update</button>
                                 <button onClick={() => handleReviewDelete(myReview._id)} className='btn btn-secondary'>Delete</button>
                             </div>
                         </div>

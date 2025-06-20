@@ -6,6 +6,7 @@ import { FaRegStar, FaStar } from 'react-icons/fa';
 import useAuth from '../../hooks/useAuth';
 import axios from 'axios';
 import Reviews from './Reviews';
+import Swal from 'sweetalert2';
 
 
 const ServiceDetails = () => {
@@ -36,6 +37,15 @@ const ServiceDetails = () => {
 
         if (rating === 0) {
             setShowWarning(true);
+            return;
+        }
+
+        if (!user) {
+            Swal.fire({
+                title: "Please login first to add a review",
+                icon: "warning",
+                draggable: true
+            });
             return;
         }
 

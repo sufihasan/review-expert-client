@@ -5,6 +5,7 @@ import ServiceCard from './ServiceCard';
 const Services = () => {
     const loadedServices = useLoaderData();
     console.log(loadedServices);
+
     return (
         <div className='w-11/12 mx-auto'>
             <h1 className='text-3xl text-pink-700 text-center'>All services</h1>

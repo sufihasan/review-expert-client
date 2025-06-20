@@ -39,6 +39,21 @@ const Login = () => {
                 // console.log(result);
                 setUser(result.user);
 
+                fetch('http://localhost:3000/users', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: result?.user?.email,
+                        displayName: result?.user?.displayName || '',
+
+                    }),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data.message || 'User saved or exists');
+                    })
+                    .catch(err => console.error('Error saving user:', err));
+
                 Swal.fire({
                     icon: "success",
                     title: "Login Successfully",

@@ -49,6 +49,27 @@ const Register = () => {
                         setUser({ ...newUser, displayName: name, photoURL: photo });
                         //navigate to home or desire
 
+                        fetch('http://localhost:3000/users', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                email: newUser.email,
+                                displayName: name,
+
+                            }),
+                        })
+                            .then(response => {
+                                if (!response.ok) {
+
+                                    console.error('Failed to save user to backend');
+                                } else {
+                                    console.log('User saved to backend successfully');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error while saving user to backend:', error);
+                            });
+
                         Swal.fire({
                             icon: "success",
                             title: "Register Successfully",

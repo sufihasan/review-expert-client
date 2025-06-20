@@ -1,12 +1,37 @@
-# React + Vite
+# Project Name: ReviewExpert
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### purpose:
+ReviewExpert is a platform where people can create,update,delete service.They can add,upadate,delete review. People also find best product based on review.
+### liveUrl: live link here
 
-Currently, two official plugins are available:
+### key features:
+- User login.
+- user register.
+- Create Service.
+- User logout.
+- Show 6  group, Home page
+- User can see which service he created in my service
+- User can update and delete which  service he create.
+- user can add review.
+- user can update and delete review
+- Loading where need.
+- Responsive for Desktop, laptop, tab and mobile device
+- mongo db create , update, delete, put operation.
+- view details of service.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Npm packages that i use
+- react router
+- daisyUi
+- react icons
+- tailwinds css
+- React count-up
+- Former Motion
+- firebase
+- sweet alert 2
 
-## Expanding the ESLint configuration
+### Backend :
+- node js
+- express js
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Database: 
+- Mongodb

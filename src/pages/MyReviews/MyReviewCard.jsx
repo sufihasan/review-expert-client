@@ -16,8 +16,8 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
 
 
 
-    console.log(revData);
-    console.log(rating);
+    // console.log(revData);
+    // console.log(rating);
 
 
     // review delete start

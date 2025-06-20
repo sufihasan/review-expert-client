@@ -133,7 +133,7 @@ const MyServiceCard = ({ myServicesCreatedByPromise }) => {
                             {/* row 1 */}
 
                             {
-                                showServices?.map((myService, index) => <tr>
+                                showServices?.map((myService, index) => <tr key={myService._id}>
                                     <th>
                                         {index + 1}
                                     </th>

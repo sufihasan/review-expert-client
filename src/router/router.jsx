@@ -10,6 +10,7 @@ import MyReviews from "../pages/MyReviews/MyReviews";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
 import PrivateRoute from "../routes/PrivateRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Loading from "../pages/Loading/Loading";
 
 
 const router = createBrowserRouter([
@@ -21,18 +22,21 @@ const router = createBrowserRouter([
             {
                 index: true,
                 Component: Home,
-                loader: () => fetch('http://localhost:3000/services/featured')
+                loader: () => fetch('http://localhost:3000/services/featured'),
+                hydrateFallbackElement: <Loading></Loading>,
             },
 
             {
                 path: '/services',
                 Component: Services,
-                loader: () => fetch('http://localhost:3000/services')
+                loader: () => fetch('http://localhost:3000/services'),
+                hydrateFallbackElement: <Loading></Loading>
             },
             {
                 path: '/serviceDetails/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`),
+                hydrateFallbackElement: <Loading></Loading>
             },
             {
                 path: '/addService',

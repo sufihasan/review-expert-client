@@ -4,7 +4,7 @@ import ServiceCard from './ServiceCard';
 
 const Services = () => {
     const loadedServices = useLoaderData();
-    console.log(loadedServices);
+    // console.log(loadedServices);
 
     //  search input or selected category
     const [searchTerm, setSearchTerm] = useState('');
@@ -66,7 +66,7 @@ const Services = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-5'>
 
                 {filteredServices.map(service => (
-                    <ServiceCard key={service.id} service={service} />
+                    <ServiceCard key={service._id} service={service} />
                 ))}
 
                 {filteredServices.length === 0 && (

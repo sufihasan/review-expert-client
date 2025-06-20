@@ -28,7 +28,7 @@ const AddService = () => {
                     Swal.fire({
 
                         icon: "success",
-                        title: "Your Service has been created",
+                        title: "Your Service has been Added",
                         showConfirmButton: false,
                         timer: 1500
                     });

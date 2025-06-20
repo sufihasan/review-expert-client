@@ -6,14 +6,19 @@ const Services = () => {
     const loadedServices = useLoaderData();
     console.log(loadedServices);
 
-    // Keep track of the search input or selected category
+    //  search input or selected category
+    const [searchTerm, setSearchTerm] = useState('');
     const [category, setCategory] = useState('');
 
-    // Filter the services by the category
-    const filteredServices = loadedServices.filter(service => {
-        return category === ''
-            ? true
-            : service.category?.toLowerCase().includes(category.toLowerCase());
+
+    const filteredServices = loadedServices.filter((service) => {
+        const matchesCategory = category === '' || service.category === category;
+        const matchesSearch =
+            searchTerm === '' ||
+            service.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            service.category?.toLowerCase().includes(searchTerm.toLowerCase());
+
+        return matchesCategory && matchesSearch;
     });
 
     return (
@@ -24,17 +29,29 @@ const Services = () => {
                 <input
                     type='text'
                     placeholder='Search by category'
-                    value={category}
-                    onChange={e => setCategory(e.target.value)}
+                    value={searchTerm}
+                    onChange={e => {
+                        setCategory('');
+                        setSearchTerm(e.target.value);
+                    }}
                     className='input input-bordered w-full max-w-xs'
                 />
+
+
             </div>
 
-            {/* Category */}
-            <fieldset className="fieldset">
+            {/* Category dropdown */}
+            <fieldset className="fieldset w-full max-w-xs">
                 {/* <legend className="fieldset-legend">Category</legend> */}
-                <select name="category" className="input w-full" defaultValue="">
-                    <option value="" disabled >— Select a category —</option>
+                <select
+                    value={category}
+                    onChange={(e) => {
+                        setSearchTerm('');
+                        setCategory(e.target.value);
+                    }}
+                    className="input w-full"
+                >
+                    <option value="">— All categories —</option>
                     <option value="Cleaning">Cleaning</option>
                     <option value="Electricity">Electricity</option>
                     <option value="Painting">Painting</option>
@@ -44,13 +61,10 @@ const Services = () => {
                 </select>
             </fieldset>
 
+
+
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-5'>
-                {/* {
-                    loadedServices.map(service => <ServiceCard
-                        key={service.id}
-                        service={service}
-                    ></ServiceCard>)
-                } */}
+
                 {filteredServices.map(service => (
                     <ServiceCard key={service.id} service={service} />
                 ))}

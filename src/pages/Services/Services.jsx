@@ -41,7 +41,7 @@ const Services = () => {
             </div>
 
             {/* Category dropdown */}
-            <fieldset className="fieldset w-full max-w-xs">
+            <fieldset className="fieldset w-full mx-auto md:mx-0 max-w-xs">
                 {/* <legend className="fieldset-legend">Category</legend> */}
                 <select
                     value={category}
@@ -49,7 +49,7 @@ const Services = () => {
                         setSearchTerm('');
                         setCategory(e.target.value);
                     }}
-                    className="input w-full"
+                    className="input w-full "
                 >
                     <option value="">— All categories —</option>
                     <option value="Cleaning">Cleaning</option>

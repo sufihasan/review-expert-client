@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
 import Swal from 'sweetalert2';
+import Navbar from '../Shared/Navbar';
 
 const Register = () => {
     // const [errorMessage, setErrorMessage] = useState('');
@@ -91,15 +92,16 @@ const Register = () => {
 
     return (
         <div>
+            <Navbar></Navbar>
             <div className='md:flex justify-center items-center'>
 
-                <div className='p-2 md:p-0 md:w-[30%]'>
+                <div className='p-2 md:p-0 md:w-[50%] lg:w-[30%]'>
                     <div className="card bg-base-100 mt-5 
                         mx-auto w-full max-w-sm
                         shrink-0 shadow-xl">
                         <div className="card-body">
 
-                            <h1 className="text-3xl text-primary text-center font-bold">Register Now</h1>
+                            <h1 className="text-3xl text-blue-600 text-center font-bold">Register Now</h1>
 
                             <form onSubmit={handleRegister} className='fieldset'>
                                 {/* name  */}
@@ -142,7 +144,7 @@ const Register = () => {
 
 
 
-                                <button className="btn btn-neutral mt-4">Register</button>
+                                <button className="btn text-white bg-blue-500 mt-4">Register</button>
 
 
                             </form>
@@ -157,8 +159,8 @@ const Register = () => {
                     </div>
                 </div>
 
-                <div>
-                    <img className='w-[60%]' src="https://i.ibb.co/fV6czHCT/register.png" alt="" />
+                <div className='md:w-[40%]'>
+                    <img className=' lg:w-[60%] hidden md:flex' src="https://i.ibb.co/fV6czHCT/register.png" alt="" />
                 </div>
 
             </div>

@@ -93,7 +93,7 @@ const Login = () => {
                                 </div>
 
                                 {errorMessage && <p className='text-red-500 text-xs'>{errorMessage}</p>}
-                                <button className="btn btn-neutral mt-4">Login</button>
+                                <button className="btn btn-primary mt-4">Login</button>
 
                             </form>
                             <button onClick={handleGoogleLogin} className="btn bg-white text-black border-[#e5e5e5]">

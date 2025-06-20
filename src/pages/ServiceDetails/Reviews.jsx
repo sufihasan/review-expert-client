@@ -13,7 +13,7 @@ const Reviews = ({ reviewsPromise, newReview }) => {
     console.log(reviews);
     return (
         <div>
-            <h1>{reviews.length}</h1>
+            {/* <h1>{reviews.length}</h1> */}
             <div>
                 {reviews.length > 0 ?
                     reviews.map(review => <div key={review._id} className="card w-full bg-base-100 shadow-xl my-4">

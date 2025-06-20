@@ -90,12 +90,12 @@ const ServiceDetails = () => {
     return (
         <div className='mt-5 w-11/12 mx-auto'>
             <div className="flex flex-col w-full lg:flex-row">
-                <div className="w-1/2">
+                <div className="lg:w-1/2">
                     <h2 className="text-3xl text-center border">Details</h2>
 
                     <div className="card w-full bg-base-100 shadow-xl">
-                        <figure className="px-10 pt-10">
-                            <img src={ServiceImage} alt="Shoes" className=" h-96 w-full" />
+                        <figure className="px-5 lg:px-10 pt-5 lg:pt-10">
+                            <img src={ServiceImage} alt="Shoes" className=" lg:h-96 w-full" />
                         </figure>
                         <div className="card-body items-center ">
                             <h2 className="card-title font-bold">{ServiceTitle}</h2>
@@ -117,7 +117,7 @@ const ServiceDetails = () => {
 
                 </div>
                 <div className="divider lg:divider-horizontal"></div>
-                <div className="w-1/2">
+                <div className="lg:w-1/2">
                     <h2 className="text-3xl text-center border">Reviews</h2>
 
                     <div>

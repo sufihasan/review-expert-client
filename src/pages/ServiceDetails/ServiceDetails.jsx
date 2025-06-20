@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import { useFormatDate } from '../../hooks/useFormatDate';
 import Rating from 'react-rating';
 import { FaRegStar, FaStar } from 'react-icons/fa';
@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 
 
 const ServiceDetails = () => {
+    const navigate = useNavigate();
     const loadedService = useLoaderData();
     const { user } = useAuth();
     // const [num, setNumber] = useState(0);
@@ -22,6 +23,11 @@ const ServiceDetails = () => {
     const { ServiceImage, ServiceTitle, description,
         price, category, date, Website, CompanyName, userEmail, _id } = loadedService;
     const { formatDateToDMY } = useFormatDate();
+
+    // if user go incorrect route
+    if (!ServiceTitle) {
+        return navigate('*');
+    }
 
 
     const reviewsPromise = fetch(`http://localhost:3000/reviews/${_id}`)

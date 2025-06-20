@@ -2,7 +2,7 @@ import React, { use, useState } from 'react';
 import { useFormatDate } from '../../hooks/useFormatDate';
 import Swal from 'sweetalert2';
 import UpdateServiceModal from './UpdateServiceModal';
-import { div } from 'motion/react-client';
+
 
 
 const MyServiceCard = ({ myServicesCreatedByPromise }) => {

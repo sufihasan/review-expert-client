@@ -12,7 +12,7 @@ const Home = () => {
     const [totalServices, setTotalServices] = useState(0);
     const [totalReviews, setTotalReviews] = useState(0);
     const [totalUsers, setTotalUsers] = useState(0);
-    const [loading1, setLoading1] = useState(true); // NEW
+    const [loading1, setLoading1] = useState(true);
 
     // for  all services length
     useEffect(() => {
@@ -38,7 +38,7 @@ const Home = () => {
             <Slider></Slider>
             <section>
                 <h1 className='text-center text-3xl font-semibold my-5'>Latest Service</h1>
-                <div className='grid grid-cols-3 gap-10 w-11/12 mx-auto'>
+                <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-10 w-11/12 mx-auto'>
                     {
                         latestFeaturedServices.map(service => <ServiceCard
                             service={service}

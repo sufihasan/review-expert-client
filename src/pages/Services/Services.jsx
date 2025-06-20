@@ -22,7 +22,7 @@ const Services = () => {
     });
 
     return (
-        <div className='w-11/12 mx-auto'>
+        <div className='w-11/12 mx-auto mt-5'>
             <h1 className='text-3xl text-pink-700 text-center'>All services</h1>
             {/* Search by category input */}
             <div className='my-5 flex justify-center'>

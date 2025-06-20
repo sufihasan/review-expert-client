@@ -85,7 +85,8 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-end space-x-2">
-                    <label className="input w-40">
+
+                    <label className="input w-40 hidden md:flex">
                         <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <g
                                 strokeLinejoin="round"

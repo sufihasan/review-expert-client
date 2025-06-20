@@ -88,7 +88,7 @@ const ServiceDetails = () => {
 
 
     return (
-        <div>
+        <div className='mt-5 w-11/12 mx-auto'>
             <div className="flex flex-col w-full lg:flex-row">
                 <div className="w-1/2">
                     <h2 className="text-3xl text-center border">Details</h2>

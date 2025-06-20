@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import { useFormatDate } from '../../hooks/useFormatDate';
 import Swal from 'sweetalert2';
 import UpdateServiceModal from './UpdateServiceModal';
+import { div } from 'motion/react-client';
 
 
 const MyServiceCard = ({ myServicesCreatedByPromise }) => {
@@ -110,80 +111,88 @@ const MyServiceCard = ({ myServicesCreatedByPromise }) => {
                 handleUpdateServiceSubmit={handleUpdateServiceSubmit}
                 oldMyservice={oldMyservice}
             ></UpdateServiceModal>
-            <div className="overflow-x-auto">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th>
-                                No
-                            </th>
-                            <th>Name and Info</th>
 
-                            <th>Category</th>
-                            <th>Company Info</th>
-
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* row 1 */}
-
-                        {
-                            showServices?.map((myService, index) => <tr>
+            {
+                showServices.length > 0 ? <div className="overflow-x-auto">
+                    <table className="table">
+                        {/* head */}
+                        <thead>
+                            <tr>
                                 <th>
-                                    {index + 1}
+                                    No
                                 </th>
-                                <td>
-                                    <div className="flex flex-col md:flex-row items-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle h-24 w-24">
-                                                <img className=''
-                                                    src={myService?.ServiceImage}
-                                                    alt="user photo" />
+                                <th>Name and Info</th>
+
+                                <th>Category</th>
+                                <th>Company Info</th>
+
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {/* row 1 */}
+
+                            {
+                                showServices?.map((myService, index) => <tr>
+                                    <th>
+                                        {index + 1}
+                                    </th>
+                                    <td>
+                                        <div className="flex flex-col md:flex-row items-center gap-3">
+                                            <div className="avatar">
+                                                <div className="mask mask-squircle h-24 w-24">
+                                                    <img className=''
+                                                        src={myService?.ServiceImage}
+                                                        alt="user photo" />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div className="font-bold">{myService?.ServiceTitle}</div>
+                                                <div>Price: {myService?.price}</div>
+                                                <div className="text-sm opacity-50">Start at: {formatDateToDMY(myService?.date)}</div>
                                             </div>
                                         </div>
-                                        <div>
-                                            <div className="font-bold">{myService?.ServiceTitle}</div>
-                                            <div>Price: {myService?.price}</div>
-                                            <div className="text-sm opacity-50">Start at: {formatDateToDMY(myService?.date)}</div>
+                                    </td>
+                                    <td>
+                                        {myService?.category}
+                                    </td>
+
+                                    <td>
+                                        <div className=''>
+                                            Name: {myService?.CompanyName}
+
                                         </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    {myService?.category}
-                                </td>
-
-                                <td>
-                                    <div className=''>
-                                        Name: {myService?.CompanyName}
-
-                                    </div>
-                                    <div>
-                                        Email: {myService?.Website}
-                                    </div>
-                                </td>
+                                        <div>
+                                            Email: {myService?.Website}
+                                        </div>
+                                    </td>
 
 
 
 
 
-                                <th className='flex gap-2'>
-                                    <div className="join join-vertical gap-2">
+                                    <th className='flex gap-2'>
+                                        <div className="join join-vertical gap-2">
 
-                                        <button onClick={() => handleUpdateServiceClick(myService)} className="btn join-item">Update</button>
-                                        <button onClick={() => handleServiceDelete(myService._id)} className="btn join-item">Delete</button>
+                                            <button onClick={() => handleUpdateServiceClick(myService)} className="btn join-item">Update</button>
+                                            <button onClick={() => handleServiceDelete(myService._id)} className="btn join-item">Delete</button>
 
-                                    </div>
+                                        </div>
 
-                                </th>
-                            </tr>)
-                        }
+                                    </th>
+                                </tr>)
+                            }
 
-                    </tbody>
+                        </tbody>
 
-                </table>
-            </div>
+                    </table>
+                </div> : <div>
+                    <p className='text-center text-warning'>You have'not added no service</p>
+                </div>
+            }
+
+
+
         </div>
     );
 };

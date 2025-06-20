@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AddService = () => {
     const { user } = use(AuthContext)
@@ -23,6 +24,15 @@ const AddService = () => {
         axios.post('http://localhost:3000/services', newService)
             .then(res => {
                 console.log(res.data);
+                if (res.data.insertedId) {
+                    Swal.fire({
+
+                        icon: "success",
+                        title: "Your Service has been created",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
             })
             .catch(error => {
                 console.log(error);

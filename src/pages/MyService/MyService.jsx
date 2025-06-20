@@ -8,7 +8,7 @@ const MyService = () => {
     const { myServicesCreatedByPromise } = useMyServicesApi();
 
     return (
-        <div className='w-11/12 mx-auto'>
+        <div className='w-11/12 mx-auto mt-3'>
             <h1 className='text-2xl text-center font-semibold'>My services</h1>
             {
                 loading ? <h1>Loading....</h1> : <Suspense fallback={'waiting..'}>

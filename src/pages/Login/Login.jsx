@@ -4,6 +4,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
 import Swal from 'sweetalert2';
+import Navbar from '../Shared/Navbar';
 
 const Login = () => {
     const { signinUser, setUser, googleSignIn } = use(AuthContext);
@@ -71,9 +72,10 @@ const Login = () => {
 
     return (
         <div>
+            <Navbar></Navbar>
             <div className='md:flex justify-center items-center'>
 
-                <div className='p-2 md:p-0 mt-8 md:mt-16 w-full md:w-[30%]'>
+                <div className='p-2 md:p-0 mt-8 md:mt-16 w-full md:w-[45%] lg:w-[30%]'>
                     <div className="card mx-auto  bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                         <div className="card-body">
                             <h1 className="text-3xl text-primary text-center font-bold">Login now!</h1>

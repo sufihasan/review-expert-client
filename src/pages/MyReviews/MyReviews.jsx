@@ -11,7 +11,7 @@ const MyReviews = () => {
     const { myReviewCreatedByPromise } = useMyReviewApi();
 
     return (
-        <div className='w-11/12 mx-auto'>
+        <div className='w-11/12 mx-auto mt-5'>
             <h1 className='text-2xl font-semibold text-center'>My All Reviews</h1>
             {loading ? <h1>load load</h1> : <Suspense fallback={'loading...'}>
                 <MyReviewCard

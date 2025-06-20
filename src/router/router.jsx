@@ -23,14 +23,7 @@ const router = createBrowserRouter([
                 Component: Home,
                 loader: () => fetch('http://localhost:3000/services/featured')
             },
-            {
-                path: '/login',
-                Component: Login
-            },
-            {
-                path: '/register',
-                Component: Register
-            },
+
             {
                 path: '/services',
                 Component: Services,
@@ -54,6 +47,14 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
             }
         ]
+    },
+    {
+        path: '/login',
+        Component: Login
+    },
+    {
+        path: '/register',
+        Component: Register
     },
 
     {

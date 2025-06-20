@@ -74,7 +74,7 @@ const Navbar = () => {
                     </div>
                     <Link to='/' className='flex'>
                         <img className='w-16 hidden md:flex' src='https://i.ibb.co/LDHyp4zX/logo11.png' alt="logo" />
-                        <p className="md:text-3xl md:hidden font-bold ml-3 text-2xl">Review<span className='text-primary'>Expert</span></p>
+                        <p className="md:text-3xl md:hidden font-bold ml-3 text-xl">Review<span className='text-primary'>Expert</span></p>
                     </Link>
                 </div>
 

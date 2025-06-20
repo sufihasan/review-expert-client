@@ -41,12 +41,12 @@ const AddService = () => {
     }
 
     return (
-        <div className='w-11/12 mx-auto mt-3'>
+        <div className='w-11/12 mx-auto mt-5'>
             <h2 className="text-3xl text-center border-4 border-gray-300">Add a New Service</h2>
 
 
             {/* form section */}
-            <div className='w-3/4 mx-auto my-6'>
+            <div className='md:w-3/4 mx-auto my-6'>
                 <form onSubmit={handleAddService}>
                     <div className='grid grid-cols-1  mx-auto w-10/12 gap-3'>
 

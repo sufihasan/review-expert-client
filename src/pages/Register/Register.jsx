@@ -20,7 +20,7 @@ const Register = () => {
         const name = form.name.value;
         const photo = form.photo.value;
         const password = form.password.value;
-        console.log(email, name, photo, password);
+        // console.log(email, name, photo, password);
 
         // password validation
         const upperCaseRegex = /(?=.*[A-Z])/;
@@ -41,7 +41,7 @@ const Register = () => {
 
         createUser(email, password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 const newUser = result.user;
                 //user update
                 updateUser({ displayName: name, photoURL: photo })
@@ -64,7 +64,7 @@ const Register = () => {
 
                                     console.error('Failed to save user to backend');
                                 } else {
-                                    console.log('User saved to backend successfully');
+                                    // console.log('User saved to backend successfully');
                                 }
                             })
                             .catch(error => {
@@ -80,13 +80,13 @@ const Register = () => {
 
                         navigate(location?.state || '/');
                     }).catch(error => {
-                        console.log('error in userUpdate', error);
+                        // console.log('error in userUpdate', error);
                         setUser(newUser);
                     })
 
             })
             .catch(error => {
-                console.log(error.message);
+                // console.log(error.message);
             })
     }
 

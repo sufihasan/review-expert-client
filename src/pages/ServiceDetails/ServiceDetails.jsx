@@ -72,17 +72,17 @@ const ServiceDetails = () => {
             reviewerEmail, reviewDate, serviceId, serviceTitle, serviceImage
         };
 
-        console.log(reviewInfo);
+        // console.log(reviewInfo);
 
         axios.post('http://localhost:3000/reviews', reviewInfo)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 setNewReview(reviewInfo);
                 e.target.review.value = '';
                 setRating(0);
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             })
     };
 

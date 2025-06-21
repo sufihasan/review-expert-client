@@ -15,7 +15,7 @@ const MyServiceCard = ({ myServicesCreatedByPromise }) => {
 
     // review delete start
     const handleServiceDelete = (id) => {
-        console.log('delete service', id);
+        // console.log('delete service', id);
 
         Swal.fire({
             title: "Are you sure?",
@@ -33,7 +33,7 @@ const MyServiceCard = ({ myServicesCreatedByPromise }) => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         if (data.deletedCount) {
 
                             const remaingServices = showServices.filter(servc => servc._id !== id);
@@ -79,7 +79,7 @@ const MyServiceCard = ({ myServicesCreatedByPromise }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.modifiedCount > 0) {
                     // Update review in the list
                     const updatedServices = showServices.map((servs) =>

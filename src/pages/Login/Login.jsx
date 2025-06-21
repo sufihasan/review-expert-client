@@ -18,18 +18,18 @@ const Login = () => {
 
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        // console.log(email, password);
 
         setErrorMessage('');
 
         signinUser(email, password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 setUser(result.user);
                 navigate(location.state || '/');
             })
             .catch(error => {
-                console.log(error.message);
+                // console.log(error.message);
                 setErrorMessage('Invalid email or password. Please try again.');
             })
     }
@@ -51,7 +51,7 @@ const Login = () => {
                 })
                     .then(response => response.json())
                     .then(data => {
-                        console.log(data.message || 'User saved or exists');
+                        // console.log(data.message || 'User saved or exists');
                     })
                     .catch(err => console.error('Error saving user:', err));
 
@@ -64,7 +64,7 @@ const Login = () => {
 
                 navigate(location.state || '/');
             }).catch(error => {
-                console.log(error);
+                // console.log(error);
                 // setErrorMessage(error.code);
             })
     }

@@ -22,7 +22,7 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
 
     // review delete start
     const handleReviewDelete = (id) => {
-        console.log('delete review', id);
+        // console.log('delete review', id);
 
         Swal.fire({
             title: "Are you sure?",
@@ -40,7 +40,7 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         if (data.deletedCount) {
 
                             const remaingReviews = showReviews.filter(revw => revw._id !== id);
@@ -70,9 +70,9 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
     const handleSubmit = (e, id) => {
         e.preventDefault();
         const updatedText = e.target.review.value;
-        console.log('Updated Text:', updatedText);
-        console.log('Updated rating:', rating);
-        console.log('id of this', id);
+        // console.log('Updated Text:', updatedText);
+        // console.log('Updated rating:', rating);
+        // console.log('id of this', id);
 
         const updatedReview = {
             reviewText: updatedText,
@@ -90,7 +90,7 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.modifiedCount > 0) {
                     // Update review in the list
                     const updatedList = showReviews.map((rev) =>

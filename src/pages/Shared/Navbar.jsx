@@ -13,9 +13,9 @@ const Navbar = () => {
     const handleLogout = () => {
         userLogout()
             .then(() => {
-                console.log('signout successfully');
+                // console.log('signout successfully');
             }).catch(error => {
-                console.log(error);
+                // console.log(error);
             })
     }
 

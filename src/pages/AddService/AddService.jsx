@@ -19,11 +19,11 @@ const AddService = () => {
 
         newService.date = new Date().toISOString();
 
-        console.log(newService);
+        // console.log(newService);
 
         axios.post('http://localhost:3000/services', newService)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data.insertedId) {
                     Swal.fire({
 
@@ -35,7 +35,7 @@ const AddService = () => {
                 }
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             })
 
     }

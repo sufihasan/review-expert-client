@@ -10,7 +10,7 @@ const Reviews = ({ reviewsPromise, newReview }) => {
     const { formatDateToDMY } = useFormatDate();
     // const [finalReview, setfinalReview] = useState(reviews);
     // setfinalReview([newReview, ...reviews]);
-    console.log(reviews);
+    // console.log(reviews);
     return (
         <div>
             {/* <h1>{reviews.length}</h1> */}

@@ -4,7 +4,7 @@ import React from 'react';
 const useMyServicesApi = () => {
 
     const myServicesCreatedByPromise = email => {
-        return axios.get(`http://localhost:3000/services/myService?email=${email}`)
+        return axios.get(`https://ass11-b-ele-server-ser.vercel.app/services/myService?email=${email}`)
             .then(res => res.data);
     }
 

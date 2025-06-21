@@ -1,16 +1,14 @@
 
 
-import React, { use } from 'react';
+import React from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import Rating from 'react-rating';
 import { useFormatDate } from '../../hooks/useFormatDate';
 
-const Reviews = ({ reviewsPromise, newReview }) => {
-    const reviews = use(reviewsPromise);
+const Reviews = ({ reviews }) => {
+
     const { formatDateToDMY } = useFormatDate();
-    // const [finalReview, setfinalReview] = useState(reviews);
-    // setfinalReview([newReview, ...reviews]);
-    // console.log(reviews);
+
     return (
         <div>
             {/* <h1>{reviews.length}</h1> */}

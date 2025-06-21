@@ -4,7 +4,7 @@ import React from 'react';
 const useMyReviewApi = () => {
 
     const myReviewCreatedByPromise = email => {
-        return axios.get(`http://localhost:3000/reviews/myReviews?email=${email}`)
+        return axios.get(`https://ass11-b-ele-server-ser.vercel.app/reviews/myReviews?email=${email}`)
             .then(res => res.data);
     }
 

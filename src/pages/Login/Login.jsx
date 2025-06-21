@@ -40,7 +40,7 @@ const Login = () => {
                 // console.log(result);
                 setUser(result.user);
 
-                fetch('http://localhost:3000/users', {
+                fetch('https://ass11-b-ele-server-ser.vercel.app/users', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({

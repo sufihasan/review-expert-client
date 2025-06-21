@@ -21,7 +21,7 @@ const AddService = () => {
 
         // console.log(newService);
 
-        axios.post('http://localhost:3000/services', newService)
+        axios.post('https://ass11-b-ele-server-ser.vercel.app/services', newService)
             .then(res => {
                 // console.log(res.data);
                 if (res.data.insertedId) {

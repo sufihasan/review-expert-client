@@ -22,20 +22,20 @@ const router = createBrowserRouter([
             {
                 index: true,
                 Component: Home,
-                loader: () => fetch('http://localhost:3000/services/featured'),
+                loader: () => fetch('https://ass11-b-ele-server-ser.vercel.app/services/featured'),
                 hydrateFallbackElement: <Loading></Loading>,
             },
 
             {
                 path: '/services',
                 Component: Services,
-                loader: () => fetch('http://localhost:3000/services'),
+                loader: () => fetch('https://ass11-b-ele-server-ser.vercel.app/services'),
                 hydrateFallbackElement: <Loading></Loading>
             },
             {
                 path: '/serviceDetails/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`),
+                loader: ({ params }) => fetch(`https://ass11-b-ele-server-ser.vercel.app/services/${params.id}`),
                 hydrateFallbackElement: <Loading></Loading>
             },
             {

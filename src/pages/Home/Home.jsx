@@ -16,7 +16,7 @@ const Home = () => {
 
     // for  all services length
     useEffect(() => {
-        fetch("http://localhost:3000/summary")
+        fetch("https://ass11-b-ele-server-ser.vercel.app/summary")
             .then((res) => res.json())
             .then((data) => {
                 setTotalServices(data.totalServices);

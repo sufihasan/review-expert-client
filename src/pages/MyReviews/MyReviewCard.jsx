@@ -35,7 +35,7 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:3000/reviews/${id}`, {
+                fetch(`https://ass11-b-ele-server-ser.vercel.app/reviews/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -81,7 +81,7 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
         };
 
 
-        fetch(`http://localhost:3000/reviews/${id}`, {
+        fetch(`https://ass11-b-ele-server-ser.vercel.app/reviews/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

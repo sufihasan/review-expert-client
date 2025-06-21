@@ -28,7 +28,7 @@ const MyServiceCard = ({ myServicesCreatedByPromise }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:3000/services/${id}`, {
+                fetch(`https://ass11-b-ele-server-ser.vercel.app/services/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -70,7 +70,7 @@ const MyServiceCard = ({ myServicesCreatedByPromise }) => {
         // console.log('handleUpdateServiceSubmit thekay', updateService);
         // console.log('handleUpdateServiceSubmit thekay', id);
 
-        fetch(`http://localhost:3000/services/${id}`, {
+        fetch(`https://ass11-b-ele-server-ser.vercel.app/services/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

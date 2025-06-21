@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router';
 import { useFormatDate } from '../../hooks/useFormatDate';
 import Rating from 'react-rating';
@@ -13,8 +13,7 @@ const ServiceDetails = () => {
     const navigate = useNavigate();
     const loadedService = useLoaderData();
     const { user } = useAuth();
-    // const [num, setNumber] = useState(0);
-    const [newReview, setNewReview] = useState({});
+    const [reviews, setReviews] = useState([]);
     const [rating, setRating] = useState(0);
     const [showWarning, setShowWarning] = useState(false);
 
@@ -24,14 +23,31 @@ const ServiceDetails = () => {
         price, category, date, Website, CompanyName, userEmail, _id } = loadedService;
     const { formatDateToDMY } = useFormatDate();
 
-    // if user go incorrect route
-    if (!ServiceTitle) {
-        return navigate('*');
-    }
+
+    useEffect(() => {
+        if (!ServiceTitle) {
+            navigate('*');
+        }
+    }, [ServiceTitle, navigate]);
 
 
-    const reviewsPromise = fetch(`http://localhost:3000/reviews/${_id}`)
-        .then(res => res.json());
+    useEffect(() => {
+
+        fetch(`https://ass11-b-ele-server-ser.vercel.app/reviews/${_id}`)
+            .then(res => res.json())
+            .then(data => {
+                setReviews(data);
+
+            })
+            .catch(err => {
+                console.error('Error fetching reviews:', err);
+
+            });
+    }, [_id]);
+
+
+
+
 
 
 
@@ -45,6 +61,10 @@ const ServiceDetails = () => {
             setShowWarning(true);
             return;
         }
+
+        //Clear warning because for valid rating
+        setShowWarning(false);
+
 
         if (!user) {
             Swal.fire({
@@ -74,17 +94,37 @@ const ServiceDetails = () => {
 
         // console.log(reviewInfo);
 
-        axios.post('http://localhost:3000/reviews', reviewInfo)
+        axios.post('https://ass11-b-ele-server-ser.vercel.app/reviews', reviewInfo)
             .then(res => {
                 // console.log(res.data);
-                setNewReview(reviewInfo);
+
+                setReviews(prev => [reviewInfo, ...prev]); //  optimistic or local update
                 e.target.review.value = '';
                 setRating(0);
+                if (res.data.insertedId) {
+                    Swal.fire({
+
+                        icon: "success",
+                        title: "Your review has been Added",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
             })
             .catch(error => {
                 // console.log(error);
             })
     };
+
+
+    if (!ServiceTitle) {
+        return <Loading />
+    }
+
+
+
+
+
 
 
     return (
@@ -135,28 +175,30 @@ const ServiceDetails = () => {
                                     emptySymbol={<FaRegStar className="text-2xl text-yellow-400" />}
                                     fullSymbol={<FaStar className="text-2xl text-yellow-400" />}
                                     initialRating={rating}
-                                    onChange={(rate) => setRating(rate)}
+                                    onChange={(rate) => {
+                                        setRating(rate);
+                                        setShowWarning(false);  // Clear warning as soon as user selects a rating
+                                    }}
                                 />
 
                             </span>
-                            {rating === 0 && showWarning && (
+
+
+
+                            {showWarning && (
                                 <p className="text-red-500 text-sm mt-1">Rating is required.</p>
                             )}
+
+
+
                             <input type="submit" className='btn block' value="Add Review" />
 
                         </form>
 
                     </div>
 
-                    {/* reviews for this service */}
-                    <div>
-                        <Suspense fallback={'review loading...'}>
-                            <Reviews
-                                reviewsPromise={reviewsPromise}
-                                newReview={newReview}
-                            ></Reviews>
-                        </Suspense>
-                    </div>
+                    <Reviews reviews={reviews} />
+
 
                 </div>
             </div>

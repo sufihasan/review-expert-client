@@ -2,7 +2,7 @@
 
 ### purpose:
 ReviewExpert is a platform where people can create,update,delete service.They can add,upadate,delete review. People also find best product based on review.
-### liveUrl: live link here
+### liveUrl: https://ass11-b-ele.web.app/
 
 ### key features:
 - User login.

@@ -174,8 +174,8 @@ const MyServiceCard = ({ myServicesCreatedByPromise }) => {
                                     <th className='flex gap-2'>
                                         <div className="join join-vertical gap-2">
 
-                                            <button onClick={() => handleUpdateServiceClick(myService)} className="btn join-item">Update</button>
-                                            <button onClick={() => handleServiceDelete(myService._id)} className="btn join-item">Delete</button>
+                                            <button onClick={() => handleUpdateServiceClick(myService)} className="btn text-white bg-blue-500 hover:bg-blue-600 join-item">Update</button>
+                                            <button onClick={() => handleServiceDelete(myService._id)} className="btn btn-secondary join-item">Delete</button>
 
                                         </div>
 

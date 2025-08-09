@@ -154,7 +154,7 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
 
 
                             <div className='space-x-3'>
-                                <button onClick={() => handleUpdateClick(myReview)} className="btn btn-primary">
+                                <button onClick={() => handleUpdateClick(myReview)} className="btn text-white bg-blue-500 hover:bg-blue-600">
                                     Update
                                 </button>
                                 <button onClick={() => handleReviewDelete(myReview._id)} className='btn btn-secondary'>Delete</button>

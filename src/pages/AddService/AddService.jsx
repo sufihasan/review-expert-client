@@ -127,7 +127,7 @@ const AddService = () => {
                                 className="textarea w-full" placeholder="Description"></textarea>
                         </fieldset>
 
-                        <input type="submit" className='btn btn-primary w-1/2 mx-auto mt-3 block' value="Add Services" />
+                        <input type="submit" className='btn hover:bg-blue-600 bg-blue-500 text-white w-1/2 mx-auto mt-3 block' value="Add Services" />
                     </div>
 
                 </form>

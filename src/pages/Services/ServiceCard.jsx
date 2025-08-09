@@ -26,7 +26,7 @@ const ServiceCard = ({ service }) => {
             <figure>
                 <img
                     src={ServiceImage}
-                    className='w-full h-48'
+                    className='w-full h-42'
                     alt="Shoes" />
             </figure>
             <div className="card-body">

@@ -11,7 +11,6 @@ const ErrorPage = () => {
                 <p className='my-3'>Oops! The page you are looking for does not exits</p>
                 <Link to='/'>
                     <button className='btn bg-blue-500 text-white'>Go Back Home</button>
-
                 </Link>
             </div>
 

@@ -27,7 +27,7 @@ const ProvideBest = ({ totalServices, totalReviews, totalUsers }) => {
             <div className="hero-content">
                 <div className="">
 
-                    <h1 className="text-5xl font-bold text-center">We Provide to find Best
+                    <h1 className="text-3xl font-bold text-center">We Provide to find Best
                         Services</h1>
                     <p className="py-6 text-center text-gray-500">
                         Everyday here many new sarvice added. People add review. That help to find best service.

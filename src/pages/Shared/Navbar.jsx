@@ -58,9 +58,10 @@ const Navbar = () => {
     </>
 
     return (
-        <div className=" bg-base-100   border-2 border-gray-500 shadow-2xl rounded-lg mx-5 mt-3">
-
-            <div className='navbar md:w-11/12 mx-auto'>
+        // mx-5 mt-3
+        <div className=" bg-base-100    shadow-xl sticky top-0 z-50">
+            {/* md:w-11/12 */}
+            <div className='navbar w-11/12 px-0 mx-auto'>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -73,7 +74,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to='/' className='flex'>
-                        <img className='w-16 hidden md:flex' src='https://i.ibb.co/LDHyp4zX/logo11.png' alt="logo" />
+                        <img className='w-30 hidden md:flex' src='https://i.ibb.co.com/Z6jvt4r6/navlogobl.png' alt="logo" />
                         <p className="md:text-3xl md:hidden font-bold ml-3 text-xl">Review<span className='text-primary'>Expert</span></p>
                     </Link>
                 </div>

@@ -22,13 +22,13 @@ const Navbar = () => {
     const links = <>
         <li className='text-xl'>
             <NavLink
-                className={({ isActive }) => isActive ? 'text-white  font-semibold  rounded-none bg-primary' : ''}
+                className={({ isActive }) => isActive ? 'text-white  font-semibold rounded   bg-blue-500' : ''}
                 to='/'>Home</NavLink>
         </li>
 
         <li className='text-xl' >
             <NavLink
-                className={({ isActive }) => isActive ? 'text-white  font-semibold  rounded-none bg-primary' : ''}
+                className={({ isActive }) => isActive ? 'text-white  font-semibold  rounded bg-blue-500' : ''}
                 to='/services'>Services</NavLink>
         </li>
 
@@ -36,18 +36,18 @@ const Navbar = () => {
             user ? <>
                 <li className='text-xl' >
                     <NavLink
-                        className={({ isActive }) => isActive ? 'text-white  font-semibold  rounded-none bg-primary' : ''}
+                        className={({ isActive }) => isActive ? 'text-white  font-semibold  rounded bg-blue-500' : ''}
                         to='/addService'>Add Service</NavLink>
                 </li>
 
                 <li className='text-xl'>
                     <NavLink
-                        className={({ isActive }) => isActive ? 'text-white  font-semibold  rounded-none bg-primary' : ''}
+                        className={({ isActive }) => isActive ? 'text-white  font-semibold  rounded bg-blue-500' : ''}
                         to='/myService'>My Services</NavLink>
                 </li>
                 <li className='text-xl'>
                     <NavLink
-                        className={({ isActive }) => isActive ? 'text-white  font-semibold  rounded-none bg-primary' : ''}
+                        className={({ isActive }) => isActive ? 'text-white  font-semibold  rounded bg-blue-500' : ''}
                         to='/myReviews'>My Reviews</NavLink>
                 </li>
 

@@ -25,7 +25,8 @@ const ServiceCard = ({ service }) => {
             <div className="card-body">
                 <h2 className="card-title">
                     {ServiceTitle}
-                    <div className="badge badge-secondary ml-3">{modifiedData}</div>
+                    {/* badge-secondary */}
+                    <div className="badge bg-blue-500 text-white ml-3">{modifiedData}</div>
                 </h2>
                 <p>{description}</p>
                 <div className="card-actions justify-between items-center">
@@ -35,7 +36,7 @@ const ServiceCard = ({ service }) => {
                     </div>
 
                     <Link to={`/serviceDetails/${_id}`}>
-                        <div className="btn btn-outline hover:bg-pink-500 hover:text-white">See Details</div>
+                        <div className="btn btn-outline hover:bg-blue-500 hover:text-white">See Details</div>
                     </Link>
                 </div>
             </div>

@@ -8,9 +8,9 @@ const Slider = () => {
                 <div id="slide1" className="carousel-item relative w-full">
                     <img
                         src="https://i.ibb.co/C5zCvtBC/rev2.jpg"
-                        className="w-full h-80" />
+                        className="w-full h-96 rounded" />
 
-                    <div className='absolute top-[60%] lg:top-[70%] md:left-[20%] lg:left-[30%] text-white text-center bg-gray-500/50 p-2'>
+                    <div className='absolute  top-[60%] lg:top-[70%] md:left-[20%] lg:left-[30%] text-white text-center bg-gray-500/50 p-2'>
                         <h1 className='text-2xl'>Discover top-rated services.</h1>
                         <p>Browse helpful reviews to choose services that meet your needs best.</p>
 
@@ -25,7 +25,7 @@ const Slider = () => {
                 <div id="slide2" className="carousel-item relative w-full">
                     <img
                         src="https://i.ibb.co/QFsvdsDQ/rev1.jpg"
-                        className="w-full h-80" />
+                        className="w-full h-96 rounded" />
                     <div className='absolute top-[60%] lg:top-[70%] md:left-[20%] lg:left-[30%] text-white text-center bg-gray-500/40 p-2'>
                         <h1 className='text-2xl'>Write and share reviews</h1>
                         <p>Help others by posting honest feedback and real service experiences.</p>
@@ -41,7 +41,7 @@ const Slider = () => {
                 <div id="slide3" className="carousel-item relative w-full">
                     <img
                         src="https://i.ibb.co/vvKFpS4b/rev3.jpg"
-                        className="w-full h-80" />
+                        className="w-full h-96 rounded" />
 
                     <div className='absolute top-[60%] lg:top-[70%] md:left-[20%] lg:left-[30%] text-white text-center bg-gray-500/30 p-2'>
                         <h1 className='text-2xl'>Manage your services easily</h1>

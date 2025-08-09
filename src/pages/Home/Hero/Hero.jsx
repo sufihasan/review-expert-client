@@ -1,9 +1,10 @@
 import { div } from 'motion/react-client';
 import React from 'react';
+import { Link } from 'react-router';
 
 const Hero = () => {
     return (
-        <div className='w-11/12 mx-auto mt-10'>
+        <div className='w-11/12 mx-auto mt-15'>
             <div
                 className="hero rounded"
                 style={{
@@ -19,7 +20,9 @@ const Hero = () => {
                             People can review service. It is very secure platform for
                             review services. Join with us for find best services.
                         </p>
-                        <button className="btn btn-primary">Get Started</button>
+                        <Link to='/register'>
+                            <button className="btn btn-primary">Get Started</button>
+                        </Link>
                     </div>
                 </div>
             </div>

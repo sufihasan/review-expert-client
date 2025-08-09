@@ -9,6 +9,7 @@ import ProvideBest from './ProvideBest/ProvideBest';
 
 const Home = () => {
     const latestFeaturedServices = useLoaderData();
+
     const [totalServices, setTotalServices] = useState(0);
     const [totalReviews, setTotalReviews] = useState(0);
     const [totalUsers, setTotalUsers] = useState(0);
@@ -36,8 +37,8 @@ const Home = () => {
         <div className=' '>
 
             <Slider></Slider>
-            <section>
-                <h1 className='text-center text-3xl font-semibold my-5'>Latest Service</h1>
+            <section className='mt-10'>
+                <h1 className='text-center text-3xl font-semibold mb-5'>Latest Service</h1>
                 <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-10 w-11/12 mx-auto'>
                     {
                         latestFeaturedServices.map(service => <ServiceCard

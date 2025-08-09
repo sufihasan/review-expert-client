@@ -22,7 +22,7 @@ const ProvideBest = ({ totalServices, totalReviews, totalUsers }) => {
     });
 
     return (
-        <div className="hero  mt-10">
+        <div className="hero  mt-8">
 
             <div className="hero-content">
                 <div className="">

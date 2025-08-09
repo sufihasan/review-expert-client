@@ -2,7 +2,7 @@ import React from 'react';
 
 const MeetPartner = () => {
     return (
-        <div className='w-11/12 mx-auto my-10 dark:text-white'>
+        <div className='w-11/12 mx-auto my-15 dark:text-white'>
             <h1 className='text-center text-3xl font-bold'>Meet with out Partners</h1>
             <div className='grid md:grid-cols-2 lg:grid-cols-5 gap-5  md:gap-10 mt-5'>
 

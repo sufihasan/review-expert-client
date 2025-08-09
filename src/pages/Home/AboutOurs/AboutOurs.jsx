@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 
 const AboutOurs = () => {
     return (
-        <div className='w-11/12 mx-auto border border-gray-300 rounded py-10 mt-10'>
+        <div className='w-11/12 mx-auto border border-gray-300 rounded py-10 mt-15'>
             <div className='flex flex-col md:flex-row  md:items-center md:justify-center gap-10'>
                 <div>
                     {/* <img src="https://i.ibb.co/Jj4kTnxc/rev5.jpg" alt="" /> */}

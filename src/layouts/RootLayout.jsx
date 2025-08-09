@@ -7,7 +7,7 @@ import Loading from '../pages/Loading/Loading';
 const RootLayout = () => {
     const { state } = useNavigation();
     return (
-        <div>
+        <div className='dark:bg-gray-800'>
             <Navbar></Navbar>
 
             <div className='min-h-[calc(100vh-468px)]'>

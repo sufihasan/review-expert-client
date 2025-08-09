@@ -11,6 +11,7 @@ import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
 import PrivateRoute from "../routes/PrivateRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Loading from "../pages/Loading/Loading";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
             {
                 path: '/myReviews',
                 element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
+            },
+            {
+                path: '/about',
+                Component: AboutUs
             }
         ]
     },

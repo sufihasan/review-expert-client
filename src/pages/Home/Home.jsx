@@ -33,7 +33,7 @@ const Home = () => {
 
 
     return (
-        <div>
+        <div className=' '>
 
             <Slider></Slider>
             <section>

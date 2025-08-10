@@ -3,13 +3,27 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
 import Swal from 'sweetalert2';
 import Navbar from '../Shared/Navbar';
+import { DarkContext } from '../../contexts/DarkContext';
 
 const Register = () => {
     // const [errorMessage, setErrorMessage] = useState('');
     const { createUser, updateUser, setUser } = use(AuthContext);
     const [errorMessage, setErrorMessage] = useState('');
+    const { dmode } = use(DarkContext); // for dark mode
     const navigate = useNavigate();
     const location = useLocation();
+
+
+    let bgColor;
+    let textColor;
+    if (dmode) {
+        bgColor = 'black';
+        textColor = 'white';
+    }
+    else {
+        bgColor = 'white'
+        textColor = 'black'
+    }
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -74,6 +88,8 @@ const Register = () => {
                         Swal.fire({
                             icon: "success",
                             title: "Register Successfully",
+                            background: bgColor,
+                            color: textColor,
                             showConfirmButton: false,
                             timer: 1500
                         });
@@ -91,7 +107,7 @@ const Register = () => {
     }
 
     return (
-        <div>
+        <div className='dark:bg-gray-800 min-h-screen'>
             <Navbar></Navbar>
             <div className='md:flex justify-center items-center'>
 
@@ -99,23 +115,25 @@ const Register = () => {
                     <div className="card bg-base-100 mt-5 
                         mx-auto w-full max-w-sm
                         shrink-0 shadow-xl">
-                        <div className="card-body">
+                        <div className="card-body dark:bg-gray-700 dark:text-white">
 
                             <h1 className="text-3xl text-blue-600 text-center font-bold">Register Now</h1>
 
                             <form onSubmit={handleRegister} className='fieldset'>
                                 {/* name  */}
-                                <label className="label">Name</label>
-                                <input required name='name' type="text" className="input" placeholder="Name" />
+                                <label className="label dark:text-gray-200">Name</label>
+                                <input required name='name' type="text" className="input dark:bg-gray-600" placeholder="Name" />
 
                                 {/* photo */}
-                                <label className="label">Photo Url</label>
-                                <input required name='photo' type="text" className="input" placeholder="Photo Url" />
+                                <label className="label dark:text-gray-200">Photo Url</label>
+                                <input required name='photo' type="text" className="input dark:bg-gray-600" placeholder="Photo Url" />
 
                                 {/* email */}
-                                <label className="label">Email</label>
-                                <input required name='email' type="email" className="input" placeholder="Email" />
-                                <label className="label">Password</label>
+                                <label className="label dark:text-gray-200">Email</label>
+                                <input required name='email' type="email" className="input dark:bg-gray-600" placeholder="Email" />
+
+
+                                <label className="label dark:text-gray-200">Password</label>
 
                                 {/* password */}
                                 <div className='relative'>
@@ -125,7 +143,7 @@ const Register = () => {
                                         name='password'
                                         // type={showPass ? 'text' : 'password'}
                                         type='password'
-                                        className="input"
+                                        className="input  dark:bg-gray-600"
                                         placeholder="Password" />
 
                                     {/* <span
@@ -144,7 +162,7 @@ const Register = () => {
 
 
 
-                                <button className="btn text-white bg-blue-500 mt-4">Register</button>
+                                <button className="btn border-0 text-white bg-blue-500 mt-4">Register</button>
 
 
                             </form>

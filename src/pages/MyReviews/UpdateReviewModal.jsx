@@ -17,18 +17,18 @@ const UpdateReviewModal = ({
 
     return (
         <dialog id="my_modal_3" className="modal">
-            <div className="modal-box">
+            <div className="modal-box dark:bg-gray-800 dark:text-gray-200">
                 <form method="dialog">
-                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 ">✕</button>
                 </form>
 
                 <form onSubmit={(e) => handleSubmit(e, review._id)} className="my-5 space-y-3">
                     <fieldset className="fieldset">
-                        <legend className="fieldset-legend">Service Title</legend>
+                        <legend className="fieldset-legend dark:text-gray-200">Service Title</legend>
                         <input
                             type="text"
                             readOnly
-                            className="input"
+                            className="input dark:bg-gray-700"
                             defaultValue={review.serviceTitle}
                             placeholder="Type here"
                         />
@@ -36,7 +36,7 @@ const UpdateReviewModal = ({
 
                     <textarea
                         key={review._id}
-                        className="textarea input input-bordered w-full"
+                        className="textarea input input-bordered w-full dark:bg-gray-700"
                         placeholder="Enter your review here"
                         defaultValue={review.reviewText}
                         name="review"
@@ -56,7 +56,7 @@ const UpdateReviewModal = ({
                         <p className="text-red-500 text-sm mt-1">Rating is required.</p>
                     )}
 
-                    <input type="submit" className="btn block" value="Update Review" />
+                    <input type="submit" className="btn block text-white bg-blue-500 hover:bg-blue-600 border-0" value="Update Review" />
                 </form>
             </div>
         </dialog>

@@ -4,12 +4,14 @@ import Rating from 'react-rating';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import UpdateReviewModal from './UpdateReviewModal';
+import { DarkContext } from '../../contexts/DarkContext';
 
 const MyReviewCard = ({ myReviewCreatedByPromise }) => {
     const myreviews = use(myReviewCreatedByPromise);
     const { formatDateToDMY } = useFormatDate();
     const [showReviews, setShowReviews] = useState(myreviews);
     const [revData, setRevData] = useState({});
+    const { dmode } = use(DarkContext); // for dark mode
     // const numRating = revData.rating;
     const [rating, setRating] = useState(0);
     // const [reviewText, setReviewText] = useState('');  // new add
@@ -19,10 +21,23 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
     // console.log(revData);
     // console.log(rating);
 
+    let bgColor;
+    let textColor;
+    if (dmode) {
+        bgColor = 'black';
+        textColor = 'white';
+    }
+    else {
+        bgColor = 'white'
+        textColor = 'black'
+    }
+
 
     // review delete start
     const handleReviewDelete = (id) => {
         // console.log('delete review', id);
+
+
 
         Swal.fire({
             title: "Are you sure?",
@@ -31,6 +46,8 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
+            background: bgColor,
+            color: textColor,
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
@@ -49,6 +66,8 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your Review has been deleted.",
+                                background: bgColor,
+                                color: textColor,
                                 icon: "success"
                             });
                         }
@@ -102,6 +121,8 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
                         icon: 'success',
                         title: 'Review Updated!',
                         timer: 1500,
+                        background: bgColor,
+                        color: textColor,
                         showConfirmButton: false,
                     });
 

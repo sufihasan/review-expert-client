@@ -11,7 +11,7 @@ const UpdateServiceModal = ({
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
             {/* <button className="btn" onClick={() => document.getElementById('my_modal_3').showModal()}>open modal</button> */}
             <dialog id="my_modal_3" className="modal">
-                <div className="modal-box  max-w-xl">
+                <div className="modal-box  max-w-xl dark:bg-gray-800 dark:text-gray-200">
                     <form method="dialog">
                         {/* if there is a button in form, it will close the modal */}
                         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
@@ -19,19 +19,19 @@ const UpdateServiceModal = ({
                     {/* form section */}
                     <div className='w-3/4 mx-auto my-6'>
                         <form onSubmit={(e) => handleUpdateServiceSubmit(e, oldMyservice?._id)}>
-                            <div className='grid grid-cols-1  mx-auto w-10/12 gap-3'>
+                            <div className='grid grid-cols-1  mx-auto w-10/12 gap-3 '>
 
                                 {/* Service Title */}
                                 <fieldset className="fieldset">
-                                    <legend className="fieldset-legend">Service Title</legend>
+                                    <legend className="fieldset-legend dark:text-gray-200">Service Title</legend>
                                     <input key={oldMyservice._id} type="text" name='ServiceTitle' defaultValue={oldMyservice?.ServiceTitle}
-                                        className="input w-full" placeholder="Enter Service Title" />
+                                        className="input w-full dark:bg-gray-700" placeholder="Enter Service Title" />
                                 </fieldset>
 
                                 {/* Category */}
                                 <fieldset className="fieldset">
-                                    <legend className="fieldset-legend">Category</legend>
-                                    <select key={oldMyservice._id} name="category" className="input w-full" defaultValue={oldMyservice?.category}>
+                                    <legend className="fieldset-legend dark:text-gray-200">Category</legend>
+                                    <select key={oldMyservice._id} name="category" className="input w-full dark:bg-gray-700" defaultValue={oldMyservice?.category}>
                                         <option value="" disabled >— Select a category —</option>
                                         <option value="Cleaning">Cleaning</option>
                                         <option value="Electricity">Electricity</option>
@@ -45,33 +45,33 @@ const UpdateServiceModal = ({
 
                                 {/* Service Image */}
                                 <fieldset className="fieldset">
-                                    <legend className="fieldset-legend">Service Image</legend>
+                                    <legend className="fieldset-legend dark:text-gray-200">Service Image</legend>
                                     <input key={oldMyservice._id} type="text" name='ServiceImage' defaultValue={oldMyservice?.ServiceImage}
-                                        className="input w-full" placeholder="Service Image URL" />
+                                        className="input w-full dark:bg-gray-700" placeholder="Service Image URL" />
                                 </fieldset>
 
                                 {/* Company Name--- */}
                                 <fieldset className="fieldset">
-                                    <legend className="fieldset-legend">Company Name</legend>
+                                    <legend className="fieldset-legend dark:text-gray-200">Company Name</legend>
                                     <input key={oldMyservice._id} type="text"
                                         name='CompanyName' defaultValue={oldMyservice?.CompanyName}
-                                        className="input w-full" placeholder="Enter Company Name" />
+                                        className="input w-full dark:bg-gray-700" placeholder="Enter Company Name" />
                                 </fieldset>
 
                                 {/* Website--- */}
                                 <fieldset className="fieldset">
-                                    <legend className="fieldset-legend">Website</legend>
+                                    <legend className="fieldset-legend dark:text-gray-200">Website</legend>
                                     <input key={oldMyservice._id} type="text"
                                         name='Website' defaultValue={oldMyservice?.Website}
-                                        className="input w-full" placeholder="Enter Website" />
+                                        className="input w-full dark:bg-gray-700" placeholder="Enter Website" />
                                 </fieldset>
 
                                 {/* Price */}
                                 <fieldset className="fieldset">
-                                    <legend className="fieldset-legend">Price</legend>
+                                    <legend className="fieldset-legend dark:text-gray-200">Price</legend>
                                     <input key={oldMyservice._id} type="text"
                                         name='price' defaultValue={oldMyservice?.price}
-                                        className="input w-full" placeholder="Enter Price" />
+                                        className="input w-full dark:bg-gray-700" placeholder="Enter Price" />
                                 </fieldset>
 
 
@@ -84,9 +84,9 @@ const UpdateServiceModal = ({
 
                                 {/* User Email */}
                                 <fieldset className="fieldset">
-                                    <legend className="fieldset-legend">User Email</legend>
+                                    <legend className="fieldset-legend dark:text-gray-200">User Email</legend>
                                     <input type="text" name='userEmail' readOnly value={user?.email || ''}
-                                        className="input w-full" placeholder="User Email" />
+                                        className="input w-full dark:bg-gray-700" placeholder="User Email" />
                                 </fieldset>
 
                             </div>
@@ -94,11 +94,11 @@ const UpdateServiceModal = ({
                             {/* Description */}
                             <div className='w-10/12 mx-auto'>
                                 <fieldset className="fieldset">
-                                    <legend className="fieldset-legend">Description</legend>
+                                    <legend className="fieldset-legend dark:text-gray-200">Description</legend>
                                     {/* <input type="text" name='description'
                                 className="input w-full" placeholder="Description" /> */}
                                     <textarea name='description' defaultValue={oldMyservice?.description} key={oldMyservice._id}
-                                        className="textarea w-full" placeholder="Description"></textarea>
+                                        className="textarea w-full dark:bg-gray-700" placeholder="Description"></textarea>
                                 </fieldset>
 
                                 <input type="submit" className='btn btn-primary w-1/2 mx-auto mt-3 block' value="Update Service" />

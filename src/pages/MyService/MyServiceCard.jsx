@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import { useFormatDate } from '../../hooks/useFormatDate';
 import Swal from 'sweetalert2';
 import UpdateServiceModal from './UpdateServiceModal';
+import { DarkContext } from '../../contexts/DarkContext';
 
 
 
@@ -9,6 +10,7 @@ const MyServiceCard = ({ myServicesCreatedByPromise }) => {
     const myServices = use(myServicesCreatedByPromise);
     const [showServices, setShowServices] = useState(myServices);
     const [oldMyservice, setOldMyService] = useState({});
+    const { dmode } = use(DarkContext); // for dark mode
     const { formatDateToDMY } = useFormatDate();
     // console.log('ok', newMyservice);
 
@@ -17,6 +19,19 @@ const MyServiceCard = ({ myServicesCreatedByPromise }) => {
     const handleServiceDelete = (id) => {
         // console.log('delete service', id);
 
+        let bgColor;
+        let textColor;
+        if (dmode) {
+            bgColor = 'black';
+            textColor = 'white';
+        }
+        else {
+            bgColor = 'white'
+            textColor = 'black'
+        }
+
+
+
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -24,6 +39,8 @@ const MyServiceCard = ({ myServicesCreatedByPromise }) => {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
+            background: bgColor,
+            color: textColor,
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
@@ -42,6 +59,8 @@ const MyServiceCard = ({ myServicesCreatedByPromise }) => {
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your service has been deleted.",
+                                background: bgColor,
+                                color: textColor,
                                 icon: "success"
                             });
                         }

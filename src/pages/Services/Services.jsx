@@ -47,7 +47,8 @@ const Services = () => {
                             setCategory('');
                             setSearchTerm(e.target.value);
                         }}
-                        className='input input-bordered w-full'
+                        className='input input-bordered w-full dark:bg-gray-700 dark:text-white'
+                    // className='input  w-full dark:bg-gray-700 dark:text-white'
                     />
 
 
@@ -62,7 +63,7 @@ const Services = () => {
                             setSearchTerm('');
                             setCategory(e.target.value);
                         }}
-                        className="input w-full "
+                        className="input w-full dark:bg-gray-700 dark:text-gray-400"
                     >
                         <option value="">— All categories —</option>
                         <option value="Cleaning">Cleaning</option>
@@ -79,9 +80,9 @@ const Services = () => {
                     <select
                         value={sortOrder}
                         onChange={(e) => setSortOrder(e.target.value)}
-                        className="input w-full"
+                        className="input w-full dark:bg-gray-700 dark:text-gray-400"
                     >
-                        <option value="">Sort by price</option>
+                        <option value="">— Sort by price —</option>
                         <option value="asc">Price: Low to High</option>
                         <option value="desc">Price: High to Low</option>
                     </select>

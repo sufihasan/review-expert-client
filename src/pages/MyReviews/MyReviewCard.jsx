@@ -131,7 +131,7 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
 
             {/* modal end */}
 
-            <div>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
                 {showReviews.length > 0 ?
                     showReviews.map(myReview => <div key={myReview._id} className="card w-full bg-base-100 shadow-xl my-4">
                         <div className="card-body">

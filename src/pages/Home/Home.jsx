@@ -6,6 +6,7 @@ import Hero from './Hero/Hero';
 import ServiceCard from '../Services/ServiceCard';
 import { useLoaderData } from 'react-router';
 import ProvideBest from './ProvideBest/ProvideBest';
+import Loading from '../Loading/Loading';
 
 const Home = () => {
     const latestFeaturedServices = useLoaderData();
@@ -34,11 +35,11 @@ const Home = () => {
 
 
     return (
-        <div className=' '>
+        <div >
 
             <Slider></Slider>
             <section className='mt-10'>
-                <h1 className='text-center text-3xl font-semibold mb-5'>Latest Service</h1>
+                <h1 className='text-center text-3xl font-semibold mb-5 dark:text-gray-200'>Latest Service</h1>
                 <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-10 w-11/12 mx-auto'>
                     {
                         latestFeaturedServices.map(service => <ServiceCard
@@ -54,7 +55,8 @@ const Home = () => {
             <Hero></Hero>
             <AboutOurs></AboutOurs>
             {loading1 ? (
-                <h2>Loading total services...</h2>
+                // <h2>Loading total services...</h2>
+                <Loading></Loading>
             ) : (
                 <ProvideBest
                     totalServices={totalServices}

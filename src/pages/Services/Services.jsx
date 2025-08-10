@@ -35,7 +35,7 @@ const Services = () => {
 
     return (
         <div className='w-11/12 mx-auto mt-5'>
-            <h1 className='text-3xl  text-center'>All services</h1>
+            <h1 className='text-3xl  text-center dark:text-gray-200'>All services</h1>
             <div className='flex mt-3 flex-col md:flex-row items-center justify-center gap-3'>
                 {/* Search by category input */}
                 <div className=' w-full mx-auto md:mx-0 max-w-xs'>

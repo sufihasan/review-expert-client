@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
 
 const Navbar = () => {
-    const { user, userLogout } = use(AuthContext);
+    const { user, userLogout, setDemode } = use(AuthContext);
 
     // test work start
     const loading = false;
@@ -31,11 +31,13 @@ const Navbar = () => {
         if (darkMode) {
             root.classList.add('dark');
             localStorage.setItem('theme', 'dark');
+            setDemode(true);
         } else {
             root.classList.remove('dark');
             localStorage.setItem('theme', 'light');
+            setDemode(false);
         }
-    }, [darkMode]);
+    }, [darkMode, setDemode]);
 
     // dark mode code----
 

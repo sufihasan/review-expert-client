@@ -12,12 +12,12 @@ import Swal from 'sweetalert2';
 const ServiceDetails = () => {
     const navigate = useNavigate();
     const loadedService = useLoaderData();
-    const { user } = useAuth();
+    const { user, dmode } = useAuth();
     const [reviews, setReviews] = useState([]);
     const [rating, setRating] = useState(0);
     const [showWarning, setShowWarning] = useState(false);
 
-
+    // console.log(dmode);
 
     const { ServiceImage, ServiceTitle, description,
         price, category, date, Website, CompanyName, userEmail, _id } = loadedService;
@@ -121,9 +121,26 @@ const ServiceDetails = () => {
         return <Loading />
     }
 
+    let bgColor;
+    let textColor;
+    if (dmode) {
+        bgColor = 'black';
+        textColor = 'white';
+    }
+    else {
+        bgColor = 'white'
+        textColor = 'black'
+    }
 
-
-
+    const handleConform = () => {
+        Swal.fire({
+            title: "Good job!",
+            text: "Confirm Service!",
+            icon: "success",
+            background: bgColor,
+            color: textColor
+        });
+    }
 
 
 
@@ -131,9 +148,9 @@ const ServiceDetails = () => {
         <div className='mt-5 w-11/12 mx-auto'>
             <div className="flex flex-col w-full lg:flex-row">
                 <div className="lg:w-1/2">
-                    <h2 className="text-3xl text-center border">Details</h2>
+                    <h2 className="text-3xl text-center dark:text-gray-200 dark:border-slate-700  border border-gray-200">Details</h2>
 
-                    <div className="card w-full bg-base-100 shadow-xl">
+                    <div className="card  w-full bg-base-100 shadow-xl mt-5 dark:bg-gray-700 dark:text-gray-200">
                         <figure className="px-5 lg:px-10 pt-5 lg:pt-10">
                             <img src={ServiceImage} alt="Shoes" className=" lg:h-96 w-full" />
                         </figure>
@@ -150,7 +167,7 @@ const ServiceDetails = () => {
                             </div>
                             <p>{description}</p>
                             <div className="card-actions">
-                                <button className="btn btn-primary">Confirm Service</button>
+                                <button onClick={handleConform} className="btn bg-blue-500 hover:bg-blue-600 text-white border-0">Confirm Service</button>
                             </div>
                         </div>
                     </div>
@@ -158,14 +175,14 @@ const ServiceDetails = () => {
                 </div>
                 <div className="divider lg:divider-horizontal"></div>
                 <div className="lg:w-1/2">
-                    <h2 className="text-3xl text-center border">Reviews</h2>
+                    <h2 className="text-3xl text-center dark:text-gray-200 dark:border-slate-700  border border-gray-200">Reviews</h2>
 
                     <div>
 
                         <form onSubmit={handleAddReview} className='my-5 space-y-3' >
 
 
-                            <textarea className="textarea input input-bordered w-full"
+                            <textarea className="textarea input input-bordered w-full dark:bg-gray-700 dark:text-gray-200 "
                                 placeholder="Enter your review here"
                                 name="review" required
                             ></textarea>
@@ -191,7 +208,7 @@ const ServiceDetails = () => {
 
 
 
-                            <input type="submit" className='btn block' value="Add Review" />
+                            <input type="submit" className='btn border-0 bg-blue-500 hover:bg-blue-600' value="Add Review" />
 
                         </form>
 

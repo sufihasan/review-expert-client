@@ -14,7 +14,8 @@ const Reviews = ({ reviews }) => {
             {/* <h1>{reviews.length}</h1> */}
             <div>
                 {reviews.length > 0 ?
-                    reviews.map(review => <div key={review._id} className="card w-full bg-base-100 shadow-xl my-4">
+                    reviews.map(review => <div key={review._id} className="card w-full bg-base-100 dark:bg-gray-700
+                    dark:text-gray-200 shadow-xl my-4">
                         <div className="card-body">
                             <div className="flex items-center gap-3">
                                 <img className="w-10 rounded-full mr-2" src={review.reviewerPhoto} alt="" />

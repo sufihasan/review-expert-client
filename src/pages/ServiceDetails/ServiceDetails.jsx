@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense, use, useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router';
 import { useFormatDate } from '../../hooks/useFormatDate';
 import Rating from 'react-rating';
@@ -7,12 +7,14 @@ import useAuth from '../../hooks/useAuth';
 import axios from 'axios';
 import Reviews from './Reviews';
 import Swal from 'sweetalert2';
+import { DarkContext } from '../../contexts/DarkContext';
 
 
 const ServiceDetails = () => {
     const navigate = useNavigate();
     const loadedService = useLoaderData();
-    const { user, dmode } = useAuth();
+    const { user } = useAuth();
+    const { dmode } = use(DarkContext); // for dark mode
     const [reviews, setReviews] = useState([]);
     const [rating, setRating] = useState(0);
     const [showWarning, setShowWarning] = useState(false);

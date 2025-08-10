@@ -1,9 +1,11 @@
 import React, { use, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
+import { DarkContext } from '../../contexts/DarkContext';
 
 const Navbar = () => {
-    const { user, userLogout, setDemode } = use(AuthContext);
+    const { user, userLogout } = use(AuthContext);
+    const { setDemode } = use(DarkContext);
 
     // test work start
     const loading = false;

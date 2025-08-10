@@ -116,7 +116,7 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
     return (
         <div>
 
-            <h1 className='text-center'>Total Review: {showReviews.length}</h1>
+            <h1 className='text-center dark:text-gray-200'>Total Review: {showReviews.length}</h1>
 
             {/* modal start */}
 
@@ -134,7 +134,7 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
                 {showReviews.length > 0 ?
                     showReviews.map(myReview => <div key={myReview._id} className="card w-full bg-base-100 shadow-xl my-4">
-                        <div className="card-body">
+                        <div className="card-body dark:rounded dark:bg-gray-800 dark:text-gray-200">
                             <p className='text-2xl font-semibold'>Service Title: {myReview.serviceTitle}</p>
                             {/* <div className="flex items-center gap-3">
                                 <img className="w-10 rounded-full mr-2" src={myReview.reviewerPhoto} alt="" />
@@ -154,7 +154,7 @@ const MyReviewCard = ({ myReviewCreatedByPromise }) => {
 
 
                             <div className='space-x-3'>
-                                <button onClick={() => handleUpdateClick(myReview)} className="btn text-white bg-blue-500 hover:bg-blue-600">
+                                <button onClick={() => handleUpdateClick(myReview)} className="btn border-0 text-white bg-blue-500 hover:bg-blue-600">
                                     Update
                                 </button>
                                 <button onClick={() => handleReviewDelete(myReview._id)} className='btn btn-secondary'>Delete</button>

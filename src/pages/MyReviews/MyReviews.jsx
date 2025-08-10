@@ -13,7 +13,7 @@ const MyReviews = () => {
 
     return (
         <div className='w-11/12 mx-auto mt-5'>
-            <h1 className='text-2xl font-semibold text-center'>My All Reviews</h1>
+            <h1 className='text-2xl font-semibold text-center dark:text-gray-200'>My All Reviews</h1>
             {loading ? <Loading></Loading> : <Suspense fallback={<Loading></Loading>}>
                 <MyReviewCard
                     myReviewCreatedByPromise={myReviewCreatedByPromise(email)}

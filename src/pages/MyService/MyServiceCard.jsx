@@ -106,7 +106,7 @@ const MyServiceCard = ({ myServicesCreatedByPromise }) => {
 
     return (
         <div className=''>
-            <h1 className='text-center text-gray-500'>Total Service: {showServices.length}</h1>
+            <h1 className='text-center text-gray-500 dark:text-gray-200'>Total Service: {showServices.length}</h1>
             <UpdateServiceModal
                 handleUpdateServiceSubmit={handleUpdateServiceSubmit}
                 oldMyservice={oldMyservice}
@@ -114,10 +114,10 @@ const MyServiceCard = ({ myServicesCreatedByPromise }) => {
 
             {
                 showServices.length > 0 ? <div className="overflow-x-auto">
-                    <table className="table">
+                    <table className="table dark:text-gray-200">
                         {/* head */}
                         <thead>
-                            <tr>
+                            <tr className='dark:text-gray-200'>
                                 <th>
                                     No
                                 </th>

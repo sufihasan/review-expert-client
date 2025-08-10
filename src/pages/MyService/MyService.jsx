@@ -10,7 +10,7 @@ const MyService = () => {
 
     return (
         <div className='w-11/12 mx-auto mt-3'>
-            <h1 className='text-2xl text-center font-semibold'>My services</h1>
+            <h1 className='text-2xl text-center font-semibold dark:text-gray-200'>My services</h1>
             {
                 loading ? <Loading></Loading> : <Suspense fallback={<Loading></Loading>}>
                     <MyServiceCard

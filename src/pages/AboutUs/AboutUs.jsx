@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 const AboutUs = () => {
     return (
-        <div className="w-11/12 mx-auto">
+        <div className="w-11/12 mx-auto dark:text-gray-200">
             {/* Header */}
             <header className="py-8">
                 <h1 className="text-3xl text-center font-bold">About Us</h1>
@@ -62,7 +62,7 @@ const AboutUs = () => {
                         helpful for everyone.
                     </p>
                     <Link to='/register'>
-                        <button className='btn bg-blue-500 hover:bg-blue-600  text-white'>Join Review Expert Today</button>
+                        <button className='btn border-0 bg-blue-500 hover:bg-blue-600  text-white'>Join Review Expert Today</button>
                     </Link>
                 </section>
             </main>
